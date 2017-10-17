@@ -20,7 +20,7 @@ class Frontend{
 		wp_enqueue_script('accounting_min');	
 	}
 	public function add_css_file(){				
-		wp_register_style('product_css',PLUGIN_URL . "public/frontend/css/product.css",array(),'1.0',false);
+		wp_register_style('product_css',PLUGIN_URL . "public/frontend/css/product.css",array(),'1.0',"all");
 		wp_enqueue_style('product_css');		
 	}
 	public function load_template($templates){

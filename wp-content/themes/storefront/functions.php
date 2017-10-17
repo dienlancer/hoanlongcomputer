@@ -67,6 +67,28 @@ if ( version_compare( get_bloginfo( 'version' ), '4.7.3', '>=' ) && ( is_admin()
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
  * https://github.com/woocommerce/theme-customisations
  */
+add_action('init', 'zendvn_theme_register_menus');
+function zendvn_theme_register_menus(){
+	register_nav_menus(
+		array(						
+			'menu-top' 				=> __('MenuTop'),			
+		)
+	);
+}
+add_action('wp_footer', 'zendvn_theme_script_code');
+function zendvn_theme_script_code(){
+	echo '<script type=\'text/javascript\'>
+	var wpexLocalize = {
+		"mobileMenuOpen" : "Browse Categories",
+		"mobileMenuClosed" : "Close navigation",
+		"homeSlideshow" : "false",
+		"homeSlideshowSpeed" : "7000",
+		"UsernamePlaceholder" : "Username",
+		"PasswordPlaceholder" : "Password",
+		"enableFitvids" : "true"
+	};	
+	</script>';
+}
 add_action('wp_enqueue_scripts', 'zendvn_theme_register_js');
 function zendvn_theme_register_js(){	
 	wp_register_script('mootools', get_template_directory_uri() . '/assets/ja_moomenu/mootools.js',array(),"1.0",false);
@@ -76,8 +98,8 @@ function zendvn_theme_register_js(){
 }
 add_action('wp_enqueue_scripts', 'zendvn_theme_register_style');
 function zendvn_theme_register_style(){	
-	wp_register_style('jamoomenu', get_template_directory_uri() . '/assets/ja_moomenu/ja.moomenu.css',array(),'1.0',false);
+	wp_register_style('jamoomenu', get_template_directory_uri() . '/assets/ja_moomenu/ja.moomenu.css',array(),"1.0","all");
 	wp_enqueue_style('jamoomenu');	
-	wp_register_style('template',get_template_directory_uri() . '/assets/css/template.css',array(),'1.0',false);
+	wp_register_style('template',get_template_directory_uri() . '/assets/css/template.css',array(),"1.0","all");
 	wp_enqueue_style('template');	
 }
