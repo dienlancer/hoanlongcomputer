@@ -1,0 +1,50 @@
+.right {
+        margin: 30px auto;
+        width: 700px;
+        border: 2px solid #F00;
+        padding: 20px;
+        height: 250px;
+    }
+    
+    #menu-category-product ul {
+       width: 100%;
+       background: #004A8F;
+    }
+    
+    #menu-category-product ul li {
+        border-bottom: 1px solid #ffffff;
+    position: relative;
+    list-style: none;
+    margin-left: 0;
+    }
+    
+    #menu-category-product ul li a{
+           text-decoration: none;
+    color: #dddddd;
+    padding-left: 10px;
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    }
+    
+    #menu-category-product ul li a span{
+        display: block; 
+        background: url("../images/blue-arrow.png") left center no-repeat;
+        padding-left: 20px;
+        margin-left: 10px;
+    }
+    
+    #menu-category-product ul li a:hover{
+       color: #ffffff;
+    }
+    
+    #menu-category-product ul ul {
+        display: none;
+    }
+    
+    #menu-category-product ul li:hover > ul{
+        display: block;
+        position: absolute;
+        top: 0px;
+        left:293px;
+    }
