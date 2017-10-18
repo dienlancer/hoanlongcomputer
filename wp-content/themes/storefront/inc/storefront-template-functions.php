@@ -162,10 +162,21 @@ if ( ! function_exists( 'storefront_site_branding' ) ) {
 	 */
 	function storefront_site_branding() {
 		?>
-		<div class="site-branding">
-			<?php storefront_site_title_or_logo(); ?>
+		<div class="header">
+			<?php storefront_site_logo_banner(); ?>
 		</div>
 		<?php
+	}
+	function storefront_site_logo_banner(){
+		$html="";
+		$html='<div class="col-md-3 logo">
+						&nbsp;<img src="'.wp_upload_dir()['url'].' /logo.png">&nbsp;
+					</div><div class="col-md-9">
+						<div class="huy-quoc">
+							&nbsp;<img src="'.wp_upload_dir()['url'].'/huy-quoc.jpg">&nbsp;
+						</div>
+					</div><div class="clr"></div>';
+		echo $html;
 	}
 }
 

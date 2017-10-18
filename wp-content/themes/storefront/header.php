@@ -21,40 +21,37 @@
 <body <?php body_class(); ?>>
 
 <?php do_action( 'storefront_before_site' ); ?>
-<div id="page" class="container">
-	<?php do_action( 'storefront_before_header' ); ?>
 
-	<header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
-
-		<div class="col-full">
-
-			<?php
-			/**
-			 * Functions hooked into storefront_header action
-			 *
-			 * @hooked storefront_skip_links                       - 0
-			 * @hooked storefront_social_icons                     - 10
-			 * @hooked storefront_site_branding                    - 20
-			 * @hooked storefront_secondary_navigation             - 30
-			 * @hooked storefront_product_search                   - 40
-			 * @hooked storefront_primary_navigation_wrapper       - 42
-			 * @hooked storefront_primary_navigation               - 50
-			 * @hooked storefront_header_cart                      - 60
-			 * @hooked storefront_primary_navigation_wrapper_close - 68
-			 */
-			do_action( 'storefront_header' ); ?>
-
-		</div>
-	</header><!-- #masthead -->
-
-	<?php
-	/**
-	 * Functions hooked in to storefront_before_content
-	 *
-	 * @hooked storefront_header_widget_region - 10
-	 */
-	do_action( 'storefront_before_content' ); ?>
-
+<div id="page" class="container slot">
+	<div class="menu">
+		<?php     
+                                $args = array( 
+                                        'menu'              => '', 
+                                        'container'         => '', 
+                                        'container_class'   => '', 
+                                        'container_id'      => '', 
+                                        'menu_class'        => 'menutop', 
+                                        'menu_id'           => 'ja-cssmenu', 
+                                        'echo'              => true, 
+                                        'fallback_cb'       => 'wp_page_menu', 
+                                        'before'            => '', 
+                                        'after'             => '', 
+                                        'link_before'       => '', 
+                                        'link_after'        => '', 
+                                        'items_wrap'        => '<ul id="%1$s" class="%2$s">%3$s</ul>',  
+                                        'depth'             => 3, 
+                                        'walker'            => '', 
+                                        'theme_location'    => 'menu-top' 
+                                    );
+                                wp_nav_menu($args);
+                    ?> 
+                    <div class="clr"></div>
+	</div>
+	<?php 
+		do_action( 'storefront_before_header' ); 
+		do_action( 'storefront_header' );
+		do_action( 'storefront_before_content' );
+	?>	
 	<div id="content" class="site-content" tabindex="-1">
 		<div class="col-full">
 
